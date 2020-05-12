@@ -1,0 +1,74 @@
+
+.subnav-hero-section {
+    text-align: center;
+    background:black;
+    background-size: cover;
+    position: relative;
+    overflow: visible;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 300px;
+  }
+
+li {
+    position: center;
+}
+
+/*color of Music Man text*/
+  .subnav-hero-section .subnav-hero-headline {
+    color: #fefefe;
+  }
+  
+  .subnav-hero-subnav {
+    float: none;
+    position: center;
+    text-align: center;
+    margin: 0 auto;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .subnav-hero-subnav li {
+    float: none;
+    display: inline-block;
+  }
+  
+  .subnav-hero-subnav li a {
+    padding: 0.9rem 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.35s ease-in-out;
+  }
+  
+  .subnav-hero-subnav li a:hover {
+    background: rgba(254, 254, 254, 0.15);
+  }
+
+  
+.input-group-rounded .input-group-field {
+    border-radius: 5000px 0 0 5000px;
+    padding-left: 1rem;
+  }
+  
+  .input-group-rounded .input-group-button .button {
+    border-radius: 0 5000px 5000px 0;
+    font-size: 0.8rem;
+  }
+
+p {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+
