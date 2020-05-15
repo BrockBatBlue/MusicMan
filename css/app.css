@@ -83,6 +83,13 @@ p {
 .searchBar {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+/* #search {
+  border-radius: 5000px;
+} */
+#searchSong {
+  border-radius: 5000px;
 }
 
 
