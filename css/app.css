@@ -20,12 +20,10 @@
 li {
     position: center;
 }
-
 /*color of Music Man text*/
   .subnav-hero-section .subnav-hero-headline {
     color: #fefefe;
   }
-  
   .subnav-hero-subnav {
     float: none;
     position: center;
@@ -34,12 +32,10 @@ li {
     bottom: 0;
     width: 100%;
   }
-  
   .subnav-hero-subnav li {
     float: none;
     display: inline-block;
   }
-  
   .subnav-hero-subnav li a {
     padding: 0.9rem 1rem;
     font-size: 0.75rem;
@@ -49,12 +45,9 @@ li {
     letter-spacing: 1px;
     transition: all 0.35s ease-in-out;
   }
-  
   .subnav-hero-subnav li a:hover {
     background: rgba(254, 254, 254, 0.15);
-  }
-
-  
+  } 
 .input-group-rounded .input-group-field {
     border-radius: 5000px 0 0 5000px;
     padding-left: 1rem;
@@ -69,7 +62,6 @@ li {
     justify-content: center;
     width: 100%;
   }
-
 p {
     display: flex;
     flex-direction: column;
@@ -85,12 +77,36 @@ p {
   justify-content: center;
   align-items: center;
 }
-/* #search {
+#searchArtist { 
   border-radius: 5000px;
-} */
-#searchSong {
-  border-radius: 5000px;
+} 
+.videos {
+  display: flex;
+  justify-content: center;   
 }
+.orbit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.orbit-wrapper {
+  width: 420px;
+}
+.orbit-bullets{
+  display: flex;
+  justify-content: center;
+}
+#lyricsDisplay {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+}
+.singButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
-
-
+}
