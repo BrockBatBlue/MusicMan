@@ -21,13 +21,14 @@ $(".theButton").on("click", function(event){
 function videoSearch (key, search, maxResults) {
     $.get("https://www.googleapis.com/youtube/v3/search?key=" + key + "&type=video&part=snippet&maxResults=" + maxResults + "&q=" + search, function(data){
         console.log(data.items);
-        data.items.forEach(function(item) {
+        data.items.forEach(function(item, index) {
             video = `
             <iframe width="420" height="315" src="http://www.youtube.com/embed/${item.id.videoId}" frameborder="0" allowfullscreen></iframe>
              `
-            $(".videos").append(video);
-            // var video1 = $("<iframe>").attr("class", "embed-responsive-item").attr("src", "http://www.youtube.com/embed/${item.id.videoId}").attr("style", "height: 315; width:420")
+            $("#video" + (index + 1)).html(video);
+            // var video1 = $("<iframe>").attr("class", "embed-responsive-item").attr("src", `http://www.youtube.com/embed/${item.id.videoId}`).attr("style", "height: 315; width:420")
             // $("#video1").append(video1);
+            console.log(index);
         });
     })
 }
