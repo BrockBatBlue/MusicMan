@@ -1,6 +1,6 @@
 // var APIKey = "AIzaSyAIfrYqV42vZikjEowH8Lh4CtsgCpKMQXI";
 var video = "";
-var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
+//var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
 var userArrayArtist = JSON.parse(localStorage.getItem("Last Artist")) || [];
 var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
 
@@ -96,6 +96,25 @@ function storeDataSong () {
     localStorage.setItem("Last Song", JSON.stringify(userArraySong));
 
 }
+
+
+$(".karaoke").on("click", function(){
+    var x = document.getElementById("myVideo");
+    var y = document.getElementById("app-body")
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      y.style.position = "absolute";
+      y.style.top = "380px";
+      y.style.bottom = 0;
+      y.style.left = 0;
+      y.style.right = 0;
+      y.style.color = "white";
+      //y.style.zIndex = 9;
+    } else {
+      x.style.display = "none";
+      y.style.color = "black";
+    }
+})
 
 
 

@@ -1,4 +1,17 @@
 
+.flex-wrapper {
+  display: flex;
+  overflow: auto;
+  position: relative;
+}
+
+video .sticky{
+  display: flex;
+  position: sticky;
+  align-self: flex-start;
+}
+
+
 .subnav-hero-section {
     text-align: center;
     background:black;
@@ -23,6 +36,7 @@ li {
 /*color of Music Man text*/
   .subnav-hero-section .subnav-hero-headline {
     color: #fefefe;
+    font-family: 'Righteous', cursive;
   }
   .subnav-hero-subnav {
     float: none;
@@ -71,11 +85,13 @@ p {
     margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 10%;
+    font-family: 'Montserrat', sans-serif;
 }
 .searchBar {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
 }
 #searchArtist { 
   border-radius: 5000px;
@@ -102,11 +118,20 @@ p {
   justify-content: center;
   text-align: center;
   margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: large;
+  font-weight: bold;
+
 }
+
 .singButton {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
 
+.button {
+  background-color: #DB7093
 }
