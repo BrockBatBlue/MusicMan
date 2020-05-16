@@ -1,21 +1,30 @@
 // var APIKey = "AIzaSyAIfrYqV42vZikjEowH8Lh4CtsgCpKMQXI";
 var video = "";
 var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
-
+var userArrayArtist = JSON.parse(localStorage.getItem("Last Artist")) || [];
+var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
 
 $(".theButton").on("click", function(event){
     event.preventDefault();
-    console.log("click");
     var userInputArtist = $("#searchArtist").val().trim();
     var userInputSong = $("#searchSong").val().trim();
     console.log(userInputArtist);
-    console.log(userInputSong);
+    console.log(userInputSong);    
     
-    videoSearch(APIKey, userInputArtist, 3);
-    
+    // videoSearch(APIKey, userInputArtist, 3);
     lyricSearch();
+    storeDataArtist();
+    storeDataSong();
+    $("#searchArtist").val("");
+    $("#searchSong").val("");
 
+})
 
+$(".input-group-field").on("keyup", function(event){
+    if (event.keyCode === 13) {
+        console.log("enter");
+        $(".theButton").click();
+    }
 })
 
 function videoSearch (key, search, maxResults) {
@@ -29,19 +38,67 @@ function videoSearch (key, search, maxResults) {
             // var video1 = $("<iframe>").attr("class", "embed-responsive-item").attr("src", `http://www.youtube.com/embed/${item.id.videoId}`).attr("style", "height: 315; width:420")
             // $("#video1").append(video1);
             console.log(index);
+            
         });
     })
 }
 
-function lyricSearch () {
-    var userInputArtist = $("#searchArtist").val().trim().replace(/ /g, '+');
-    var userInputSong = $("#searchSong").val().trim().replace(/ /g, '+');
+function lyricSearch (artist, song) {
+    var artist = $("#searchArtist").val().trim().replace(/ /g, '+');
+    var song = $("#searchSong").val().trim().replace(/ /g, '+');
 
-    console.log(userInputArtist);
-    console.log(userInputSong);
-    $.get("https://api.lyrics.ovh/v1/" + userInputArtist + "/" + userInputSong, function (data) {
+    $.get("https://api.lyrics.ovh/v1/" + artist + "/" + song, function (data) {
         document.getElementById("lyricsDisplay").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>");
         console.log(data.lyrics);
+        console.log(artist);
+        console.log(song);
     })
 }
+
+function storeDataArtist () {
+    var userInputArtist = $("#searchArtist").val().trim().replace(/ /g, '+');
+    var containsSearch = false;
+
+    if (userArrayArtist != null) {
+        
+        $(userArrayArtist).each(function(x) {
+            if (userArrayArtist[x] === userInputArtist) {
+                containsSearch = true;
+            }
+        });
+    }
+
+    if (containsSearch === false) {
+        userArrayArtist.push(userInputArtist)
+    }
+
+    localStorage.setItem("Last Artist", JSON.stringify(userArrayArtist));
+
+}
+
+function storeDataSong () {
+    var userInputSong = $("#searchSong").val().trim().replace(/ /g, '+');
+    var containsSearch = false;
+
+    if (userArraySong != null) {
+        
+        $(userArraySong).each(function(x) {
+            if (userArraySong[x] === userInputSong) {
+                containsSearch = true;
+            }
+        });
+    }
+
+    if (containsSearch === false) {
+        userArraySong.push(userInputSong)
+    }
+
+    localStorage.setItem("Last Song", JSON.stringify(userArraySong));
+
+}
+
+
+
+
+
 
