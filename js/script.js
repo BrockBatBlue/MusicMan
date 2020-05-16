@@ -1,8 +1,6 @@
 // var APIKey = "AIzaSyAIfrYqV42vZikjEowH8Lh4CtsgCpKMQXI";
 var video = "";
 var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
-// Emily's API Key
-// var APIKey = "AIzaSyDVsd_00MuxIIQXPtSyot3MuZsqRsjxvdY";
 
 $(".theButton").on("click", function(event){
     event.preventDefault();
