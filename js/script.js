@@ -1,19 +1,5 @@
 // var APIKey = "AIzaSyAIfrYqV42vZikjEowH8Lh4CtsgCpKMQXI";
 var video = "";
-<<<<<<< HEAD
-var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
-
-$(".theButton").on("click", function(event){
-    event.preventDefault();
-    console.log("click");
-    var userInputArtist = $("#searchArtist").val().trim();
-    var userInputSong = $("#searchSong").val().trim();
-    console.log(userInputArtist);
-    console.log(userInputSong);
-    
-    videoSearch(APIKey, userInputArtist, 3);
-    
-=======
 // var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
 var userArrayArtist = JSON.parse(localStorage.getItem("Last Artist")) || [];
 var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
@@ -34,12 +20,8 @@ function newSearch () {
     console.log(userInputSong);    
 
     // videoSearch(APIKey, userInputArtist, 3);
->>>>>>> d7aec46e3196fa6c849b96a1ba461eba0549480e
     lyricSearch();
 
-<<<<<<< HEAD
-
-=======
 }
 
 $(".input-group-field").on("keyup", function(event){
@@ -47,7 +29,6 @@ $(".input-group-field").on("keyup", function(event){
         console.log("enter");
         newSearch();
     }
->>>>>>> d7aec46e3196fa6c849b96a1ba461eba0549480e
 })
 
 function videoSearch (key, search, maxResults) {
@@ -60,12 +41,8 @@ function videoSearch (key, search, maxResults) {
             $("#video" + (index + 1)).html(video);
             // var video1 = $("<iframe>").attr("class", "embed-responsive-item").attr("src", `http://www.youtube.com/embed/${item.id.videoId}`).attr("style", "height: 315; width:420")
             // $("#video1").append(video1);
-<<<<<<< HEAD
-            console.log(index);
-=======
             // console.log(index);
             
->>>>>>> d7aec46e3196fa6c849b96a1ba461eba0549480e
         });
     })
 }
@@ -79,11 +56,6 @@ function lyricSearch () {
     $.get("https://api.lyrics.ovh/v1/" + userInputArtist + "/" + userInputSong, function (data) {
         document.getElementById("lyricsDisplay").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>");
         console.log(data.lyrics);
-<<<<<<< HEAD
-    })
-}
-
-=======
         console.log(artist);
         console.log(song);
         console.log(data);
@@ -226,4 +198,3 @@ console.log(storedLyrics);
 
 
 
->>>>>>> d7aec46e3196fa6c849b96a1ba461eba0549480e
