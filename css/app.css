@@ -2,7 +2,7 @@
 video {
     object-fit: cover;
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -125,6 +125,33 @@ p {
 .orbit-bullets{
   display: flex;
   justify-content: center;
+}
+
+/*This will hopefully make video sticky*/
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+ }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+ }
+}
+
+.orbit iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.orbit.stuck {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  height: 145px;
+  transform: translateY(100%);
+  animation: fade-in-up 0.75s ease forwards;
+  z-index: 1;
 }
 
 /*Lyrics*/

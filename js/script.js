@@ -106,7 +106,7 @@ $(".karaoke").on("click", function(){
     if (background.style.display === "none") {
     background.style.display = "block";
     body.style.color = "white";
-    musicHeader.style.position= "relative";
+    musicHeader.style.position= "block";
 
     } else {
       background.style.display = "none";
@@ -114,7 +114,25 @@ $(".karaoke").on("click", function(){
     }
 })
 
+(function($) {
+	var $window = $(window);
+	var $videoWrap = $('.videos');
+	var $video = $('.orbit');
+	var videoHeight = $video.outerHeight();
 
+	$window.on('scroll', function() {
+		var windowScrollTop = $window.scrollTop();
+		var videoBottom = videoHeight + $videoWrap.offset().top;
+		
+		if (windowScrollTop > videoBottom) {
+			$videoWrap.height(videoHeight);
+			$video.addClass('stuck');
+		} else {
+			$videoWrap.height('auto');
+			$video.removeClass('stuck');
+		}
+	});
+}(jQuery));
 
 
 
