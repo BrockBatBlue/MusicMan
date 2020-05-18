@@ -72,6 +72,11 @@ p {
     margin-bottom: 2rem;
     margin-left: 10%;
 }
+
+.savedBtn {
+  color: white;
+}
+
 .searchBar {
   display: flex;
   justify-content: center;
@@ -81,9 +86,10 @@ p {
   border-radius: 5000px;
 } 
 .videos {
-  display: flex;
+  padding: 20px;
   justify-content: center;   
 }
+
 .orbit {
   display: flex;
   justify-content: center;
