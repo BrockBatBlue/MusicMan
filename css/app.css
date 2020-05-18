@@ -8,12 +8,11 @@ video {
     left: 0;
 }
 #app-body {
-    width: 80vw;
-    left: 10%;
+    width: 100vw;
     background: rgba(black, 0.66);
     color: black;
     position: relative;
-    padding: 1rem;
+    padding: 0rem;
 }
 
 /*Music man black navbar*/
@@ -98,11 +97,17 @@ p {
 }
 
 /*Search bar*/
+.savedBtn {
+  color: white;
+}
+
 .searchBar {
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
 }
 #searchArtist { 
   border-radius: 5000px;
@@ -110,9 +115,10 @@ p {
 
 /*Video carousel*/
 .videos {
-  display: flex;
+  padding: 20px;
   justify-content: center;   
 }
+
 .orbit {
   display: flex;
   justify-content: center;
@@ -173,8 +179,10 @@ p {
   align-items: center;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
 }
 
 .button {
-  background-color: #DB7093
+  background-image: url(../Assets/holo.png);
 }
