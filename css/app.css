@@ -1,67 +1,89 @@
-
-.subnav-hero-section {
-    text-align: center;
-    background:black;
-    background-size: cover;
-    position: relative;
-    overflow: visible;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    height: 300px;
-  }
-
-li {
-    position: center;
+/*Background video details for karaoke mode */
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 120vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
-/*color of Music Man text*/
-  .subnav-hero-section .subnav-hero-headline {
-    color: #fefefe;
+#app-body {
+    width: 100vw;
+    background: rgba(black, 0.66);
+    color: black;
+    position: relative;
+    padding: 0rem;
+}
+
+/*Music man black navbar*/
+  .subnav-hero-section {
+      text-align: center;
+      background:black;
+      background-size: cover;
+      position: relative;
+      overflow: visible;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      height: 300px;
+    }
+
+  li {
+      position: center;
   }
-  .subnav-hero-subnav {
-    float: none;
-    position: center;
-    text-align: center;
-    margin: 0 auto;
-    bottom: 0;
-    width: 100%;
-  }
-  .subnav-hero-subnav li {
-    float: none;
-    display: inline-block;
-  }
-  .subnav-hero-subnav li a {
-    padding: 0.9rem 1rem;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    display: block;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: all 0.35s ease-in-out;
-  }
-  .subnav-hero-subnav li a:hover {
-    background: rgba(254, 254, 254, 0.15);
-  } 
-.input-group-rounded .input-group-field {
-    border-radius: 5000px 0 0 5000px;
-    padding-left: 1rem;
-  }
-  
-  .input-group-rounded .input-group-button .button {
-    border-radius: 0 5000px 5000px 0;
-    font-size: 0.8rem;
-  }
+    /*color of Music Man text*/
+    .subnav-hero-section .subnav-hero-headline {
+      color: #fefefe;
+      font-family: 'Righteous', cursive;
+    }
+    .subnav-hero-subnav {
+      float: none;
+      position: center;
+      text-align: center;
+      margin: 0 auto;
+      bottom: 0;
+      width: 100%;
+    }
+    .subnav-hero-subnav li {
+      float: none;
+      display: inline-block;
+    }
+    .subnav-hero-subnav li a {
+      padding: 0.9rem 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      display: block;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: all 0.35s ease-in-out;
+    }
+    .subnav-hero-subnav li a:hover {
+      background: rgba(254, 254, 254, 0.15);
+    } 
+    
+    .input-group-rounded .input-group-field {
+      border-radius: 5000px 0 0 5000px;
+      padding-left: 1rem;
+    }
+    
+    .input-group-rounded .input-group-button .button {
+      border-radius: 0 5000px 5000px 0;
+      font-size: 0.8rem;
+    }
+
+/*Welcome information and text*/
   .welcomeInfo {
     display: flex;
     justify-content: center;
     width: 100%;
   }
+
 p {
     display: flex;
     flex-direction: column;
@@ -71,8 +93,10 @@ p {
     margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 10%;
+    font-family: 'Montserrat', sans-serif;
 }
 
+/*Search bar*/
 .savedBtn {
   color: white;
 }
@@ -81,10 +105,15 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
 }
 #searchArtist { 
   border-radius: 5000px;
 } 
+
+/*Video carousel*/
 .videos {
   padding: 20px;
   justify-content: center;   
@@ -103,16 +132,57 @@ p {
   display: flex;
   justify-content: center;
 }
+
+/*This will hopefully make video sticky*/
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+ }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+ }
+}
+
+.orbit iframe {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.orbit.stuck {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  height: 145px;
+  transform: translateY(100%);
+  animation: fade-in-up 0.75s ease forwards;
+  z-index: 1;
+}
+
+/*Lyrics*/
 #lyricsDisplay {
   display: flex;
   justify-content: center;
   text-align: center;
   margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: larger;
+  font-weight: 900;
+
 }
+
+/*Karaoke button*/
 .singButton {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+}
 
+.button {
+  background-image: url(../Assets/holo.png);
 }

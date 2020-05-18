@@ -136,6 +136,41 @@ function storeDataSong () {
     console.log(userArraySong);
 }
 
+// This makes the karaoke button change the background to a more 'fun' animated video
+$(".karaoke").on("click", function(){
+    var background = document.getElementById("bgvid");
+    var body = document.getElementById("app-body")
+
+    if (background.style.display === "none") {
+    background.style.display = "block";
+    body.style.color = "white";
+
+    } else {
+      background.style.display = "none";
+      body.style.color = "black";
+    }
+})
+
+// This makes the the carousel sticky
+(function($) {
+	var $window = $(window);
+	var $videoWrap = $('.videos');
+	var $video = $('.orbit');
+	var videoHeight = $video.outerHeight();
+
+	$window.on('scroll', function() {
+		var windowScrollTop = $window.scrollTop();
+		var videoBottom = videoHeight + $videoWrap.offset().top;
+		
+		if (windowScrollTop > videoBottom) {
+			$videoWrap.height(videoHeight);
+			$video.addClass('stuck');
+		} else {
+			$videoWrap.height('auto');
+			$video.removeClass('stuck');
+		}
+	});
+}(jQuery));
 
 
 var emptyArray = userArrayArtist || [];
