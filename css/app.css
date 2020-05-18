@@ -1,81 +1,90 @@
-
-.flex-wrapper {
-  display: flex;
-  overflow: auto;
-  position: relative;
+/*Background video details for karaoke mode */
+video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
-
-video .sticky{
-  display: flex;
-  position: sticky;
-  align-self: flex-start;
-}
-
-
-.subnav-hero-section {
-    text-align: center;
-    background:black;
-    background-size: cover;
+#app-body {
+    width: 80vw;
+    left: 10%;
+    background: rgba(black, 0.66);
+    color: black;
     position: relative;
-    overflow: visible;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    height: 300px;
-  }
-
-li {
-    position: center;
+    padding: 1rem;
 }
-/*color of Music Man text*/
-  .subnav-hero-section .subnav-hero-headline {
-    color: #fefefe;
-    font-family: 'Righteous', cursive;
+
+/*Music man black navbar*/
+  .subnav-hero-section {
+      text-align: center;
+      background:black;
+      background-size: cover;
+      position: relative;
+      overflow: visible;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      height: 300px;
+    }
+
+  li {
+      position: center;
   }
-  .subnav-hero-subnav {
-    float: none;
-    position: center;
-    text-align: center;
-    margin: 0 auto;
-    bottom: 0;
-    width: 100%;
-  }
-  .subnav-hero-subnav li {
-    float: none;
-    display: inline-block;
-  }
-  .subnav-hero-subnav li a {
-    padding: 0.9rem 1rem;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    display: block;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: all 0.35s ease-in-out;
-  }
-  .subnav-hero-subnav li a:hover {
-    background: rgba(254, 254, 254, 0.15);
-  } 
-.input-group-rounded .input-group-field {
-    border-radius: 5000px 0 0 5000px;
-    padding-left: 1rem;
-  }
-  
-  .input-group-rounded .input-group-button .button {
-    border-radius: 0 5000px 5000px 0;
-    font-size: 0.8rem;
-  }
+    /*color of Music Man text*/
+    .subnav-hero-section .subnav-hero-headline {
+      color: #fefefe;
+      font-family: 'Righteous', cursive;
+    }
+    .subnav-hero-subnav {
+      float: none;
+      position: center;
+      text-align: center;
+      margin: 0 auto;
+      bottom: 0;
+      width: 100%;
+    }
+    .subnav-hero-subnav li {
+      float: none;
+      display: inline-block;
+    }
+    .subnav-hero-subnav li a {
+      padding: 0.9rem 1rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      display: block;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: all 0.35s ease-in-out;
+    }
+    .subnav-hero-subnav li a:hover {
+      background: rgba(254, 254, 254, 0.15);
+    } 
+    
+    .input-group-rounded .input-group-field {
+      border-radius: 5000px 0 0 5000px;
+      padding-left: 1rem;
+    }
+    
+    .input-group-rounded .input-group-button .button {
+      border-radius: 0 5000px 5000px 0;
+      font-size: 0.8rem;
+    }
+
+/*Welcome information and text*/
   .welcomeInfo {
     display: flex;
     justify-content: center;
     width: 100%;
   }
+
 p {
     display: flex;
     flex-direction: column;
@@ -87,6 +96,8 @@ p {
     margin-left: 10%;
     font-family: 'Montserrat', sans-serif;
 }
+
+/*Search bar*/
 .searchBar {
   display: flex;
   justify-content: center;
@@ -96,6 +107,8 @@ p {
 #searchArtist { 
   border-radius: 5000px;
 } 
+
+/*Video carousel*/
 .videos {
   display: flex;
   justify-content: center;   
@@ -113,17 +126,20 @@ p {
   display: flex;
   justify-content: center;
 }
+
+/*Lyrics*/
 #lyricsDisplay {
   display: flex;
   justify-content: center;
   text-align: center;
   margin-top: 10px;
   font-family: 'Montserrat', sans-serif;
-  font-size: large;
-  font-weight: bold;
+  font-size: larger;
+  font-weight: 900;
 
 }
 
+/*Karaoke button*/
 .singButton {
   display: flex;
   justify-content: center;

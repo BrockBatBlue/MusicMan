@@ -97,24 +97,23 @@ function storeDataSong () {
 
 }
 
-
+// This makes the karaoke button change the background to a more 'fun' animated video
 $(".karaoke").on("click", function(){
-    var x = document.getElementById("myVideo");
-    var y = document.getElementById("app-body")
-    if (x.style.display === "none") {
-      x.style.display = "block";
-      y.style.position = "absolute";
-      y.style.top = "380px";
-      y.style.bottom = 0;
-      y.style.left = 0;
-      y.style.right = 0;
-      y.style.color = "white";
-      //y.style.zIndex = 9;
+    var background = document.getElementById("bgvid");
+    var body = document.getElementById("app-body")
+    var musicHeader = document.getElementsByClassName("subnav-hero-section")
+
+    if (background.style.display === "none") {
+    background.style.display = "block";
+    body.style.color = "white";
+    musicHeader.style.position= "relative";
+
     } else {
-      x.style.display = "none";
-      y.style.color = "black";
+      background.style.display = "none";
+      body.style.color = "black";
     }
 })
+
 
 
 
