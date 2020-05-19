@@ -19,8 +19,6 @@ function lastSearchArtist () {
         // console.log(userArrayArtist[i]);
         lastArtist.prepend(newLi);
     }
-
-    
 }
 
 function lastSearchSong () {
@@ -32,14 +30,27 @@ function lastSearchSong () {
         // console.log(userArraySong[i]);
 
         lastSong.prepend(newLi2);
-    }
-    
+    } 
 }
+
+
+function searchVideo (artist) {
+    console.log("clicked last result");
+    // window.open("index.html");
+    var userInputArtist = artist;
+    // console.log(userInputArtist);
+    // videoSearch(APIKey, userInputArtist, 3);
+}
+console.log(storedLyrics);
+
+// All event listeners
+
 $(".searchBtnArt").on("click", function(event){
     event.preventDefault();
     searchVideo($(this).data("artist"));
     console.log($(this).data("artist"));
 })
+
 var dataSong;
 
 $(".searchBtnSng").on("click", function(event){
@@ -50,22 +61,7 @@ $(".searchBtnSng").on("click", function(event){
     console.log(dataSong);
     console.log(userArrayArtist);
     console.log(userArraySong[1]);
-
 })
-
-function searchVideo (artist) {
-    console.log("clicked last result");
-    // window.open("index.html");
-    var userInputArtist = artist;
-    // console.log(userInputArtist);
-    // videoSearch(APIKey, userInputArtist, 3);
-
-}
-console.log(storedLyrics);
-
-
-
-
 
 
 
