@@ -31,6 +31,36 @@ function lastSearchSong () {
     }    
 };
 
+function lyricSearchSuggest (song) {
+
+    $.get("https://api.lyrics.ovh/suggest/" + song, function (data) {
+        // document.getElementById("lyricsDisplay").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>");
+        console.log(data.lyrics);
+        console.log(song);
+        console.log(data);
+        localStorage.setItem("Saved Lyrics", JSON.stringify(data));
+        console.log(storedLyrics);
+    })
+};
+
+function searchVideo (artist) {
+    console.log("clicked last result");
+    var userInputArtist = artist;
+    // videoSearch(APIKey, userInputArtist, 3);
+
+};
+function lyricSearchPrueba (artist, song) {
+
+    $.get("https://api.lyrics.ovh/v1/" + artist + "/" + song, function (data) {
+
+        $("#lyricsDisplaySaved").html(data.lyrics.replace(new RegExp("\n", "g"), "<br>"));
+        console.log(data.lyrics);
+        localStorage.setItem("Saved Lyrics", JSON.stringify(data));
+    })
+};
+
+// All event listeners
+
 $(".searchBtnArt").on("click", function(event){
     event.preventDefault();
     searchVideo($(this).data("artist"));
@@ -44,36 +74,17 @@ $(".searchBtnSng").on("click", function(event){
     console.log($(this).data("artist"));
 });
 
-function lyricSearchPrueba (artist, song) {
+var dataSong;
 
-    $.get("https://api.lyrics.ovh/v1/" + artist + "/" + song, function (data) {
-
-        $("#lyricsDisplaySaved").html(data.lyrics.replace(new RegExp("\n", "g"), "<br>"));
-        console.log(data.lyrics);
-        localStorage.setItem("Saved Lyrics", JSON.stringify(data));
-    })
-};
-
-function searchVideo (artist) {
-    console.log("clicked last result");
-    var userInputArtist = artist;
-    // videoSearch(APIKey, userInputArtist, 3);
-
-};
-
-function lyricSearchSuggest (song) {
-
-    $.get("https://api.lyrics.ovh/suggest/" + song, function (data) {
-        // document.getElementById("lyricsDisplay").innerHTML = data.lyrics.replace(new RegExp("\n", "g"), "<br>");
-        console.log(data.lyrics);
-        console.log(song);
-        console.log(data);
-        localStorage.setItem("Saved Lyrics", JSON.stringify(data));
-        console.log(storedLyrics);
-    })
-};
-
-
+$(".searchBtnSng").on("click", function(event){
+    event.preventDefault();
+    // searchSong($(this).data("artist"), $(this).data("song"));
+    // console.log($(this).data("song"));
+    dataSong = $(this).data("song");
+    console.log(dataSong);
+    console.log(userArrayArtist);
+    console.log(userArraySong[1]);
+})
 
 
 

@@ -183,6 +183,9 @@ p {
   font-weight: bold;
 }
 
+.karaoke {
+  border-radius: 5000px;
+}
 .button {
   background-image: url(../Assets/holo.png);
 }
