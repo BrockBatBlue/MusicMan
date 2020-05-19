@@ -6,13 +6,6 @@ var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
 var arrayForSearch = [];
 var storedLyrics = JSON.parse(localStorage.getItem("Saved Lyrics")) || [];
 
-
-$(".theButton").on("click", function(event){
-    event.preventDefault();
-    newSearch();
-
-})
-
 function newSearch () {
     var userInputArtist = $("#searchArtist").val().trim();
     var userInputSong = $("#searchSong").val().trim();
@@ -23,13 +16,6 @@ function newSearch () {
     lyricSearch();
 
 }
-
-$(".input-group-field").on("keyup", function(event){
-    if (event.keyCode === 13) {
-        console.log("enter");
-        newSearch();
-    }
-})
 
 function videoSearch (key, search, maxResults) {
     $.get("https://www.googleapis.com/youtube/v3/search?key=" + key + "&type=video&part=snippet&maxResults=" + maxResults + "&q=" + search, function(data){
@@ -108,43 +94,6 @@ function storeDataSong () {
     console.log(userArraySong);
 }
 
-// This makes the karaoke button change the background to a more 'fun' animated video
-$(".karaoke").on("click", function(){
-    var background = document.getElementById("bgvid");
-    var body = document.getElementById("app-body")
-
-    if (background.style.display === "none") {
-    background.style.display = "block";
-    body.style.color = "white";
-
-    } else {
-      background.style.display = "none";
-      body.style.color = "black";
-    }
-})
-
-// This makes the the carousel sticky
-(function($) {
-	var $window = $(window);
-	var $videoWrap = $('.videos');
-	var $video = $('.orbit');
-	var videoHeight = $video.outerHeight();
-
-	$window.on('scroll', function() {
-		var windowScrollTop = $window.scrollTop();
-		var videoBottom = videoHeight + $videoWrap.offset().top;
-		
-		if (windowScrollTop > videoBottom) {
-			$videoWrap.height(videoHeight);
-			$video.addClass('stuck');
-		} else {
-			$videoWrap.height('auto');
-			$video.removeClass('stuck');
-		}
-	});
-}(jQuery));
-
-
 var emptyArray = userArrayArtist || [];
 var emptySongArray = userArraySong || [];
 var objectArtist;
@@ -195,6 +144,54 @@ console.log(storedLyrics);
 //     console.log(finalObject);
 // }
 
+// All Event Listeners
+(function($) {
+	var $window = $(window);
+	var $videoWrap = $('.videos');
+	var $video = $('.orbit');
+	var videoHeight = $video.outerHeight();
+
+	$window.on('scroll', function() {
+		var windowScrollTop = $window.scrollTop();
+		var videoBottom = videoHeight + $videoWrap.offset().top;
+		
+		if (windowScrollTop > videoBottom) {
+			$videoWrap.height(videoHeight);
+			$video.addClass('stuck');
+		} else {
+			$videoWrap.height('auto');
+			$video.removeClass('stuck');
+		}
+	});
+}(jQuery));
+
+// Fun mode event listener
+$(".karaoke").on("click", function(){
+    var background = document.getElementById("bgvid");
+    var body = document.getElementById("app-body")
+
+    if (background.style.display === "none") {
+    background.style.display = "block";
+    body.style.color = "white";
+
+    } else {
+      background.style.display = "none";
+      body.style.color = "black";
+    }
+})
+
+$(".theButton").on("click", function(event){
+    event.preventDefault();
+    newSearch();
+
+})
+
+$(".input-group-field").on("keyup", function(event){
+    if (event.keyCode === 13) {
+        console.log("enter");
+        newSearch();
+    }
+})
 
 
 
