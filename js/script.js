@@ -167,16 +167,16 @@ console.log(storedLyrics);
 
 // Fun mode event listener
 $(".karaoke").on("click", function(){
-    var background = document.getElementById("bgvid");
-    var body = document.getElementById("app-body")
+    var background = $("#bgvid");
+    var body = $("#app-body")
 
-    if (background.style.display === "none") {
-    background.style.display = "block";
-    body.style.color = "white";
+    if (background.css("display") === "none") {
+    background.css("display", "block");
+    body.css("color", "white");
 
     } else {
-      background.style.display = "none";
-      body.style.color = "black";
+      background.css("display","none");
+      body.css("color","black");
     }
 })
 
