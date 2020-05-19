@@ -31,7 +31,7 @@ function lyricSearch () {
     var userInputSong = $("#searchSong").val().trim().replace(/ /g, '+');
 
 
-    $.get("https://api.lyrics.ovh/v1/" + artist + "/" + song, function (data) {
+    $.get("https://api.lyrics.ovh/v1/" + userInputArtist + "/" + userInputSong, function (data) {
         $("#lyricsDisplay").html(data.lyrics.replace(new RegExp("\n", "g"), "<br>"));
 
         localStorage.setItem("Saved Lyrics", JSON.stringify(data));
