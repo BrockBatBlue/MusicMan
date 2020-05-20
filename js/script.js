@@ -4,6 +4,9 @@ var userArrayArtist = JSON.parse(localStorage.getItem("Last Artist")) || [];
 var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
 var video = "";
 
+$(document).ready(function(){
+var carousel = $(".videos")
+carousel.css("display", "none");
 
 $(".theButton").on("click", function(event){
     event.preventDefault();
@@ -102,20 +105,62 @@ function storeDataSong () {
 // This makes the karaoke button change the background to a more 'fun' animated video
 
 $(".karaoke").on("click", function(){
-    var background = document.getElementById("bgvid");
-    var body = document.getElementById("app-body")
-
-    if (background.style.display === "none") {
-    background.style.display = "block";
-    body.style.color = "white";
-
+    var background = $("#bgvid");
+    var body = $("#app-body")
+    console.log(background.css("display"))
+    if (background.css("display") === "none") {
+        background.css("display", "block");
+        body.css("color", "white");
+        console.log("inside if/not")
     } else {
-      background.style.display = "none";
-      body.style.color = "black";
+      background.css("display","none");
+      body.css("color","black");
+      console.log("inside else")
+
     }
+    
+
+})
+
+$(".theButton").on("click", function(event){
+    event.preventDefault();
+    newSearch();
+
+})
+
+$(".input-group-field").on("keyup", function(event){
+    if (event.keyCode === 13) {
+        console.log("enter");
+        newSearch();
+    }
+})
+
+// This makes the carousel appear when you search for a song
+$('.theButton').on("click",function() {
+    $('.videos').css("display","block");
+    $('ul li:first-child').addClass("is-active");
 });
 
-// This makes the the carousel sticky
+// This hides the carousel, if the user wants to hide it, but he doesn't have to... personal choice
+
+    $("#hide").click(function(){
+      $(".orbit-container").hide();
+      $(".orbit-bullets").hide();
+      $(".orbit-previous").hide();
+      $(".orbit-next").hide();
+      
+
+
+    });
+    $("#show").click(function(){
+      $(".orbit-container").show();
+      $(".orbit-bullets").show();
+      $(".orbit-previous").show();
+      $(".orbit-next").show();
+    });
+  });
+
+  // This makes the the carousel sticky
 
 (function($) {
 	var $window = $(window);
@@ -136,4 +181,7 @@ $(".karaoke").on("click", function(){
 		}
 	});
 }(jQuery));
+
+
+
 
