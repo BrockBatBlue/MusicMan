@@ -12,7 +12,6 @@ $(document).ready(function (){
 
 lastSearchArtist();
 lastSearchSong();
-
 // Function for creating the buttons of the las artist searched
 
 function lastSearchArtist () {
@@ -103,6 +102,26 @@ $(".searchBtnSng").on("click", function(event){
 $("#clear").on("click", function(event){
     event.preventDefault();
     clearAll();
+});
+
+$(window).on('scroll', function() {
+    var windowScrollTop = $(window).scrollTop();
+    var $videoWrapSaved = $('.videosSaved');
+    var $video = $('.orbit');
+    var videoHeight = $video.outerHeight()
+
+    if($videoWrapSaved) {
+        console.log($videoWrapSaved)
+        var videoBottomSaved = videoHeight + $videoWrapSaved.offset().top;
+        if (windowScrollTop > videoBottomSaved) {
+            $videoWrapSaved.height(videoHeight);
+            $video.addClass('stuck');
+        } else {
+            $videoWrapSaved.height('auto');
+            $video.removeClass('stuck');
+        }
+    }
+
 });
 
 });
