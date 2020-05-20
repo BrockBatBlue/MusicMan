@@ -8,18 +8,23 @@ var lastArtist = $("#lastSearches");
 var lastSong = $("#lastSong");
 var video = "";
 
+$(document).ready(function (){
+
 lastSearchArtist();
 lastSearchSong();
 
+// Function for creating the buttons of the las artist searched
+
 function lastSearchArtist () {
     lastArtist.empty()
-    // console.log("connected");
     for (var i = 0; i < userArrayArtist.length; i ++) {
         var newLi = $("<a>").attr("class", "secondary button searchBtnArt").attr("data-artist", userArrayArtist[i]).attr("data-song", userArraySong[i]);
         newLi.text(userArrayArtist[i]);
         lastArtist.prepend(newLi);
     }
 };
+
+// Function for creating the buttons of the last song searched
 
 function lastSearchSong () {
     lastSong.empty()
@@ -31,18 +36,7 @@ function lastSearchSong () {
     }    
 };
 
-$(".searchBtnArt").on("click", function(event){
-    event.preventDefault();
-    searchVideo($(this).data("artist"));
-    console.log($(this).data("artist"));
-});
-
-$(".searchBtnSng").on("click", function(event){
-    event.preventDefault();
-    lyricSearchPrueba($(this).data("artist"), $(this).data("song"));
-    console.log($(this).data("song"));
-    console.log($(this).data("artist"));
-});
+// Function for searching lyrics
 
 function lyricSearchPrueba (artist, song) {
 
@@ -54,12 +48,26 @@ function lyricSearchPrueba (artist, song) {
     })
 };
 
+// Function for searching video
+
 function searchVideo (artist) {
     console.log("clicked last result");
     var userInputArtist = artist;
     // videoSearch(APIKey, userInputArtist, 3);
 
 };
+
+// Function for clearing local Storage and saved music
+
+function clearAll() {
+    localStorage.clear();
+    lastArtist.empty();
+    lastSong.empty();
+    $("#lyricsDisplaySaved").empty();
+
+};
+
+// This is a function for getting lyrics using "suggest" Will be used in a "get lucky" button
 
 function lyricSearchSuggest (song) {
 
@@ -72,6 +80,37 @@ function lyricSearchSuggest (song) {
         console.log(storedLyrics);
     })
 };
+
+// Event Listener for the artist button
+
+$(".searchBtnArt").on("click", function(event){
+    event.preventDefault();
+    searchVideo($(this).data("artist") + $(this).data("song"));
+    console.log($(this).data("song"));
+});
+
+// Event listener for the song button
+
+$(".searchBtnSng").on("click", function(event){
+    event.preventDefault();
+    lyricSearchPrueba($(this).data("artist"), $(this).data("song"));
+    console.log($(this).data("song"));
+    console.log($(this).data("artist"));
+});
+
+// Event listener for the clear button
+
+$("#clear").on("click", function(event){
+    event.preventDefault();
+    clearAll();
+});
+
+});
+
+
+
+
+
 
 
 
