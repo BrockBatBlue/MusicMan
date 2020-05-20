@@ -189,3 +189,9 @@ p {
 .button {
   background-image: url(../Assets/holo.png);
 }
+#lastSearches {
+  border-radius: 5000px;
+}
+#lastSongs {
+  border-radius: 5000px;
+}
