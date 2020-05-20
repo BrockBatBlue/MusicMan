@@ -3,21 +3,18 @@
 var userArrayArtist = JSON.parse(localStorage.getItem("Last Artist")) || [];
 var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
 var video = "";
+var carousel = $(".videos")
 
 $(document).ready(function(){
-var carousel = $(".videos")
-carousel.css("display", "none");
-
-$(".theButton").on("click", function(event){
-    event.preventDefault();
-    newSearch();
+    carousel.css("display", "none");
 
 });
+
+// This is what happens when you click the search button
 
 function newSearch () {
     var userInputArtist = $("#searchArtist").val().trim();
     var userInputSong = $("#searchSong").val().trim();
-
     // videoSearch(APIKey, userInputArtist + "+" + userInputSong, 3);
     lyricSearch();
     storeDataArtist();
@@ -27,12 +24,7 @@ function newSearch () {
 
 };
 
-$(".input-group-field").on("keyup", function(event){
-    if (event.keyCode === 13) {
-        console.log("enter");
-        newSearch();
-    }
-});
+// Function for searching videos using Youtube API
 
 function videoSearch (key, search, maxResults) {
     $.get("https://www.googleapis.com/youtube/v3/search?key=" + key + "&type=video&part=snippet&maxResults=" + maxResults + "&q=" + search, function(data){
@@ -47,6 +39,8 @@ function videoSearch (key, search, maxResults) {
     })
 };
 
+// Function for searching lyrics using Lyrics OVH
+
 function lyricSearch (artist, song) {
     var artist = $("#searchArtist").val().trim().replace(/ /g, '+');
     var song = $("#searchSong").val().trim().replace(/ /g, '+');
@@ -58,6 +52,8 @@ function lyricSearch (artist, song) {
     })
 };
 
+// Function for storing de artist name in local storage
+
 function storeDataArtist () {
     var userInputArtist = $("#searchArtist").val().trim().replace(/ /g, '+');
     var containsSearch = false;
@@ -66,7 +62,7 @@ function storeDataArtist () {
         
         $(userArrayArtist).each(function(x) {
             if (userArrayArtist[x] === userInputArtist) {
-                containsSearch = true;
+                // containsSearch = true;
             }
         });
     }
@@ -80,6 +76,8 @@ function storeDataArtist () {
 
 };
 
+// Function for storing the song name in local storage
+
 function storeDataSong () {
     var userInputSong = $("#searchSong").val().trim().replace(/ /g, '+');
     var containsSearch = false;
@@ -88,7 +86,7 @@ function storeDataSong () {
         
         $(userArraySong).each(function(x) {
             if (userArraySong[x] === userInputSong) {
-                containsSearch = true;
+                // containsSearch = true;
             }
         });
     }
@@ -98,69 +96,10 @@ function storeDataSong () {
     }
 
     localStorage.setItem("Last Song", JSON.stringify(userArraySong));
-    console.log(userArraySong);
 
 };
 
-// This makes the karaoke button change the background to a more 'fun' animated video
-
-$(".karaoke").on("click", function(){
-    var background = $("#bgvid");
-    var body = $("#app-body")
-    console.log(background.css("display"))
-    if (background.css("display") === "none") {
-        background.css("display", "block");
-        body.css("color", "white");
-        console.log("inside if/not")
-    } else {
-      background.css("display","none");
-      body.css("color","black");
-      console.log("inside else")
-
-    }
-    
-
-})
-
-$(".theButton").on("click", function(event){
-    event.preventDefault();
-    newSearch();
-
-})
-
-$(".input-group-field").on("keyup", function(event){
-    if (event.keyCode === 13) {
-        console.log("enter");
-        newSearch();
-    }
-})
-
-// This makes the carousel appear when you search for a song
-$('.theButton').on("click",function() {
-    $('.videos').css("display","block");
-    $('ul li:first-child').addClass("is-active");
-});
-
-// This hides the carousel, if the user wants to hide it, but he doesn't have to... personal choice
-
-    $("#hide").click(function(){
-      $(".orbit-container").hide();
-      $(".orbit-bullets").hide();
-      $(".orbit-previous").hide();
-      $(".orbit-next").hide();
-      
-
-
-    });
-    $("#show").click(function(){
-      $(".orbit-container").show();
-      $(".orbit-bullets").show();
-      $(".orbit-previous").show();
-      $(".orbit-next").show();
-    });
-  });
-
-  // This makes the the carousel sticky
+// Function for making the carousel sticky
 
 (function($) {
 	var $window = $(window);
@@ -181,6 +120,59 @@ $('.theButton').on("click",function() {
 		}
 	});
 }(jQuery));
+
+// This hides the carousel, if the user wants to hide it, but he doesn't have to... personal choice
+
+    $("#hide").click(function(){
+      $(".orbit-container").hide();
+      $(".orbit-bullets").hide();
+      $(".orbit-previous").hide();
+      $(".orbit-next").hide();
+    });
+
+    $("#show").click(function(){
+      $(".orbit-container").show();
+      $(".orbit-bullets").show();
+      $(".orbit-previous").show();
+      $(".orbit-next").show();
+    });
+
+// Event listener for the search button
+
+$(".theButton").on("click", function(event){
+    event.preventDefault();
+    newSearch();
+    $('.videos').css("display","block");
+    $('ul li:first-child').addClass("is-active");
+
+});
+
+// Event listener for Enter Key
+
+$(".input-group-field").on("keyup", function(event){
+    if (event.keyCode === 13) {
+        newSearch();
+        $('.videos').css("display","block");
+        $('ul li:first-child').addClass("is-active");
+    
+    }
+});
+
+// This makes the karaoke button change the background to a more 'fun' animated video
+
+$(".karaoke").on("click", function(){
+    var background = $("#bgvid");
+    var body = $("#app-body")
+    if (background.css("display") === "none") {
+        background.css("display", "block");
+        body.css("color", "white");
+    } else {
+      background.css("display","none");
+      body.css("color","black");
+
+    }
+});
+
 
 
 
