@@ -183,16 +183,29 @@ p {
   font-weight: bold;
 }
 
-.karaoke {
-  border-radius: 5000px;
-}
 .button {
   background-image: url(../Assets/holo.png);
   border-radius: 5000px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: bold
 }
-#lastSearches {
-  border-radius: 5000px;
+.searchBtnArt {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
-#lastSongs {
-  border-radius: 5000px;
+.row {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+}
+/* saved videos and lyrics carousel */
+.videos-saved {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
