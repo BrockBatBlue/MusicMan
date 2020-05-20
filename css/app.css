@@ -35,7 +35,7 @@ video {
     }
 
   li {
-      position: center;
+      position: center !important; 
   }
     /*color of Music Man text*/
     .subnav-hero-section .subnav-hero-headline {

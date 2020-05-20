@@ -4,6 +4,10 @@ var userArrayArtist = JSON.parse(localStorage.getItem("Last Artist")) || [];
 var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
 var video = "";
 
+$(document).ready(function(){
+var carousel = $(".videos")
+carousel.css("display", "none");
+
 function newSearch () {
     var userInputArtist = $("#searchArtist").val().trim();
     var userInputSong = $("#searchSong").val().trim();
@@ -130,6 +134,32 @@ $(".input-group-field").on("keyup", function(event){
         newSearch();
     }
 })
+
+// This makes the carousel appear when you search for a song
+$('.theButton').on("click",function() {
+    $('.videos').css("display","block");
+    $('ul li:first-child').addClass("is-active");
+});
+
+// This hides the carousel, if the user wants to hide it, but he doesn't have to... personal choice
+
+    $("#hide").click(function(){
+      $(".orbit-container").hide();
+      $(".orbit-bullets").hide();
+      $(".orbit-previous").hide();
+      $(".orbit-next").hide();
+      
+
+
+    });
+    $("#show").click(function(){
+      $(".orbit-container").show();
+      $(".orbit-bullets").show();
+      $(".orbit-previous").show();
+      $(".orbit-next").show();
+    });
+  });
+
 
 
 
