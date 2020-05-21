@@ -119,6 +119,11 @@ p {
   justify-content: center;   
 }
 
+.videosSaved {
+  padding: 20px;
+  justify-content: center;   
+}
+
 .orbit {
   display: flex;
   justify-content: center;
@@ -172,6 +177,17 @@ p {
 
 }
 
+#lyricsDisplaySaved {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: larger;
+  font-weight: 900;
+
+}
+
 /*Karaoke button*/
 .singButton {
   display: flex;
@@ -204,7 +220,7 @@ p {
   text-align: center;
 }
 /* saved videos and lyrics carousel */
-.videos-saved {
+.videosSaved {
   display: flex;
   justify-content: center;
   padding: 20px;
