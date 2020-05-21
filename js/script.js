@@ -1,5 +1,5 @@
 // var APIKey = "AIzaSyAIfrYqV42vZikjEowH8Lh4CtsgCpKMQXI";
-// var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
+//var APIKey = "AIzaSyAcAK8zAbrh0XiEyVmDFtrqIEnY7N4Qrag";
 var userArrayArtist = JSON.parse(localStorage.getItem("Last Artist")) || [];
 var userArraySong = JSON.parse(localStorage.getItem("Last Song")) || [];
 var video = "";
@@ -15,7 +15,7 @@ $(document).ready(function(){
 function newSearch () {
     var userInputArtist = $("#searchArtist").val().trim();
     var userInputSong = $("#searchSong").val().trim();
-    // videoSearch(APIKey, userInputArtist + "+" + userInputSong, 3);
+    videoSearch(APIKey, userInputArtist + "+" + userInputSong, 3);
     lyricSearch();
     storeDataArtist();
     storeDataSong();
