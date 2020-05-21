@@ -52,7 +52,7 @@ function lyricSearchPrueba (artist, song) {
 function searchVideo (artist) {
     console.log("clicked last result");
     var userInputArtist = artist;
-    // videoSearch(APIKey, userInputArtist, 3);
+    videoSearch(APIKey, userInputArtist, 3);
 
 };
 
